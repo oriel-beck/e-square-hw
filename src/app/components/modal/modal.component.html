@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>{{data.book.volumeInfo.title}}</h2>
+<div mat-dialog-content class="dialog-content">
+    <div class="dialog-image-container">
+        <img src="{{data.book.volumeInfo.imageLinks.smallThumbnail}}" alt="{{data.book.volumeInfo.title}}"
+            class="dialog-image">
+    </div>
+    <div class="dialog-text-container">
+        <p *ngIf="data.book.volumeInfo.description">
+            <b>Description:</b> {{data.book.volumeInfo.description}}
+        </p>
+        <p *ngIf="data.book.volumeInfo.authors">
+            <b>Authors:</b> {{data.book.volumeInfo.authors.join(', ')}}
+        </p>
+        <p *ngIf="data.book.volumeInfo.publisher">
+            <b>Publisher:</b> {{data.book.volumeInfo.publisher}}
+        </p>
+        <p *ngIf="data.book.volumeInfo.publishedDate">
+            <b>Publish Date:</b> {{data.book.volumeInfo.publishedDate}}
+        </p>
+        <p *ngIf="data.book.volumeInfo.categories">
+            <b>Categories:</b> {{data.book.volumeInfo.categories.join(', ')}}
+        </p>
+        <p *ngIf="data.book.volumeInfo.language">
+            <b>Language:</b> {{data.book.volumeInfo.language}}
+        </p>
+        <p *ngIf="data.book.volumeInfo.previewLink">
+            <button mat-raised-button (click)="openPreview()">
+                Preview
+                <mat-icon>open_in_new</mat-icon>
+            </button>
+        </p>
+    </div>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button color="accent" (click)="triggerAction()">{{ data.actionLabel }}</button>
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+</div>

@@ -1,0 +1,4 @@
+<app-navbar buttonLabel="Wishlist" [label]="'Hello ' + (username$ | async) + ''"
+    (search)="search($event)" [enableSearch]="true"></app-navbar>
+<app-search-results [results]="(books$ | async)" (cardClicked)="selectBook($event)"></app-search-results>
+<app-paginator [maxResults]="booksMaxResults$ | async" [pageIndex]="(pageIndex$ | async) || 0" (page)="updatePage($event)"></app-paginator>

@@ -1,0 +1,13 @@
+<div class="container">
+    <mat-grid-list cols="4" rowHeight="400px" gutterSize="10px">
+        <mat-grid-tile *ngFor="let result of results">
+            <mat-card class="book-card" (click)="cardClicked.emit(result.id)">
+                <mat-card-header>
+                    <mat-card-title>{{result.volumeInfo.title | truncate: [40, '...']}}</mat-card-title>
+                </mat-card-header>
+                <img *ngIf="result.volumeInfo?.imageLinks?.smallThumbnail" mat-card-image
+                    [src]="result.volumeInfo.imageLinks.smallThumbnail" alt="{{result.volumeInfo.title}}">
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

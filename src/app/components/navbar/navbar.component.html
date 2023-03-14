@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+    <span class="title">{{ label }}</span>
+    <span class="spacer"></span>
+    <mat-form-field *ngIf="enableSearch">
+        <input matInput placeholder="Search" (keyup)="emitSearch()" [(ngModel)]="query">
+    </mat-form-field>
+    <app-button [label]="buttonLabel" (navigateTo)="navigate($event)"></app-button>
+</mat-toolbar>
